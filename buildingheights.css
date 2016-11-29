@@ -32,7 +32,7 @@ area[height<=2]
 
 area[height>2]
 {
-    fill-color: #F26100;
+    fill-color: #FFFD36;
     text:"height";
     font-size: 15;
     text-position: center;

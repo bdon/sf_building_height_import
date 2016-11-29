@@ -1,13 +1,13 @@
 meta   
 {
-	title: "Simple building tags";
-	author: "bdon"; 
-	version: "0.0.1"; 
-	description: "building heights";
-	link: "http://foo";
-	watch-modified: true;
+  title: "Simple building tags";
+  author: "bdon"; 
+  version: "0.0.1"; 
+  description: "building heights";
+  link: "http://foo";
+  watch-modified: true;
 }
-	
+  
        
 area[building], area[building:part]
 {
@@ -17,7 +17,20 @@ area[building], area[building:part]
    width: 1.5;
 }
 
-area[height<=9]
+
+area[height<=2]
+{
+    fill-color: #ae81ea;
+    text:"height";
+    font-size: 15;
+    text-position: center;
+    text-color: red;
+    width: 3;
+    text-halo-color: white;
+    text-halo-radius: 1;
+}
+
+area[height>2]
 {
     fill-color: #F26100;
     text:"height";
@@ -29,7 +42,7 @@ area[height<=9]
     text-halo-radius: 1;
 }
 
-area[height>9]  
+area[height>9]
 {
     fill-color: #FFFD36;
     text:"height";
@@ -76,6 +89,19 @@ area[height>120]
     text-halo-color: white;
     text-halo-radius: 1;
 }
+
+area[height *= " m"] /*to match the tags in the format `height=nn.nn m`*/
+{
+    fill-color: #FFFD36;
+    text:"height";
+    font-size: 15;
+    text-position: center;
+    text-color: red;
+    width: 3;
+    text-halo-color: white;
+    text-halo-radius: 1;
+}
+
 
 setting::shrink_nodes {
   type: boolean;
@@ -128,7 +154,13 @@ node|z23-              { symbol-size: 7; }
 way > node|z23-        { symbol-size: 5; }
 node|z23-:connection   { symbol-size: 7; }
 
-
+node:selected /*To highlight selected nodes*/
+{
+    symbol-size: 7;
+    symbol-shape: circle;
+    symbol-stroke-color: #dc322f;
+    symbol-fill-color: #dc322f;
+}
 
 /* Show text only on high zoom levels *********************************/
 
